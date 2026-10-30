@@ -1,0 +1,127 @@
+/* Warna, font, reset, dan komponen dasar */
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+:root {
+  --cream: #FFFDF6;
+  --sand: #F7F0DE;
+  --brown: #9D6638;
+  --dark: #4E220E;
+  --green: #82945B;
+  --font: "Space Mono",monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: 400 16px/1.5 var(--font);
+  background: var(--cream);
+  color: var(--dark);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2.1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 80px 5%;
+}
+
+.container.narrow {
+  max-width: 1220px;
+}
+
+.card {
+  background: var(--sand);
+  padding: 40px;
+}
+
+.grid {
+  display: grid;
+  gap: 40px;
+}
+
+.cols-2 {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
+
+.cols-3 {
+  grid-template-columns: repeat(3,minmax(0,1fr));
+}
+
+.cols-4 {
+  grid-template-columns: repeat(4,minmax(0,1fr));
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 32px;
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-green {
+  background: var(--green);
+}
+
+.btn-brown {
+  background: var(--brown);
+}
+
+.tag {
+  display: inline-block;
+  background: var(--green);
+  color: #fff;
+  border-radius: 999px;
+  padding: 2px 14px;
+  font-size: .8rem;
+}
+
+.placeholder {
+  background: #fff;
+  display: grid;
+  place-items: center;
+  color: #bbb;
+  font-size: .75rem;
+}
+
+.center {
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .cols-2,
+  .cols-3,
+  .cols-4 {
+    grid-template-columns: 1fr;
+  }
+  .container {
+    padding: 48px 5%;
+  }
+}

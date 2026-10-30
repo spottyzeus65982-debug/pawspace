@@ -1,0 +1,130 @@
+/* Navbar, hero, footer */
+.nav {
+  position: absolute;
+  inset: 0 0 auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 26px 72px;
+  color: #fff;
+  z-index: 2;
+}
+
+.nav nav {
+  display: flex;
+  gap: 32px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  display: inline-block;
+}
+
+.hero {
+  position: relative;
+  height: 51.4vw;
+  min-height: 440px;
+  max-height: 740px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 0 5% 64px;
+
+  /* Foto hero diatur di css/photos.css lewat --hero-img dan --hero-shade */
+  background-color: #4a3a2a;
+  background-image:
+    linear-gradient(rgba(0,0,0,var(--hero-shade,.5)),rgba(0,0,0,var(--hero-shade,.5))),
+    var(--hero-img,none);
+  background-size: cover;
+  background-position: center;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  line-height: 1.2;
+}
+
+.hero p {
+  max-width: 1300px;
+  margin-top: 12px;
+  font-size: 1.2rem;
+}
+
+.hero .btn {
+  margin-top: 24px;
+}
+
+.footer {
+  background: #000;
+  color: #fff;
+  padding: 64px 5%;
+}
+
+.footer .inner {
+  max-width: 1180px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1.3fr 1.3fr;
+  gap: 40px;
+  font-size: .85rem;
+}
+
+.footer h4 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.footer a {
+  display: block;
+}
+
+.checkout-top {
+  padding: 28px 60px;
+  font-weight: 700;
+  font-size: 1.5rem;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.checkout-top small {
+  border-left: 2px solid var(--dark);
+  padding-left: 24px;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+@media (max-width: 800px) {
+  .nav {
+    padding: 20px;
+  }
+  .nav nav {
+    display: none;
+  }
+  .footer .inner {
+    grid-template-columns: 1fr 1fr;
+  }
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .hero p {
+    font-size: .9rem;
+  }
+}

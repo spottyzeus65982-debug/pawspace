@@ -1,0 +1,57 @@
+/* ==========================================================================
+   FOTO DESAIN — semua foto dipasang lewat CSS di file ini.
+   Cara ganti foto: timpa file di folder /images (nama sama) atau ubah url() di bawah.
+   Path url() relatif terhadap folder /css, jadi "../images/..." selalu benar.
+   ========================================================================== */
+
+/* ---------- HERO (foto latar bagian atas halaman) ---------- */
+/* hero-home.jpg belum ada di bundle foto: letakkan file itu di /images dan otomatis dipakai.
+   Selama belum ada, layer kedua (hero-hotel.jpg) tampil sebagai pengganti. */
+.hero--home        { --hero-img: url("../images/hero-home.jpg"), url("../images/hero-hotel.jpg"); --hero-shade: .40; }
+.hero--grooms      { --hero-img: url("../images/hero-grooms.jpg");      --hero-shade: .35; }
+.hero--hotel       { --hero-img: url("../images/hero-hotel.jpg");       --hero-shade: .30; }
+.hero--appointment { --hero-img: url("../images/hero-appointment.jpg"); --hero-shade: .45; }
+
+/* ---------- Dasar kotak foto ---------- */
+.photo {
+  display: block;
+  width: 100%;
+  background-color: var(--sand);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ---------- Landing: "Your pet is in safe hands" ---------- */
+.photo-home-cat       { background-image: url("../images/home-cat.jpg"); }
+.photo-home-kitten    { background-image: url("../images/home-kitten.jpg"); }
+.photo-home-yorkie    { background-image: url("../images/home-yorkie.jpg"); }
+.photo-home-dachshund { background-image: url("../images/home-dachshund.jpg"); }
+
+/* ---------- Landing: banner "Pamper your pet" ---------- */
+.photo-banner-bath   { background-image: url("../images/banner-bath.jpg"); }
+.photo-banner-bubble { background-image: url("../images/banner-bubble.jpg"); }
+.photo-banner-nails  { background-image: url("../images/banner-nails.jpg"); }
+.photo-banner-golden { background-image: url("../images/banner-golden.jpg"); }
+
+/* ---------- Landing: About Us ---------- */
+.photo-about-1 { background-image: url("../images/about-1.jpg"); }
+.photo-about-2 { background-image: url("../images/about-2.jpg"); }
+
+/* ---------- Stylist (Paw Grooms + Appointment) ---------- */
+.photo-stylist-1 { background-image: url("../images/stylist-1.jpg"); background-position: center top; }
+.photo-stylist-2 { background-image: url("../images/stylist-2.jpg"); background-position: center top; }
+.photo-stylist-3 { background-image: url("../images/stylist-3.jpg"); background-position: center top; }
+
+/* ---------- Paw Grooms: galeri hasil kerja ---------- */
+.photo-gallery-a { background-image: url("../images/gallery-a.jpg"); }
+.photo-gallery-b { background-image: url("../images/gallery-b.jpg"); }
+.photo-gallery-c { background-image: url("../images/gallery-c.jpg"); }
+.photo-gallery-d { background-image: url("../images/gallery-d.jpg"); }
+.photo-gallery-e { background-image: url("../images/gallery-e.jpg"); }
+
+/* ---------- Paw Hotel: kamar + webcam ---------- */
+.photo-room-1 { background-image: url("../images/room-1.jpg"); }
+.photo-room-2 { background-image: url("../images/room-2.jpg"); }
+.photo-room-3 { background-image: url("../images/room-3.jpg"); }
+.photo-webcam { background-image: url("../images/webcam.jpg"); }
