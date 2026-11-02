@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../includes/data.php';
 $pageTitle = 'Paw Grooms';
 $navLinks  = [
     ['Home',     url('index.php')],
