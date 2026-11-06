@@ -1,13 +1,12 @@
 <?php
-require_once __DIR__ . '/../includes/functions.php';
-require_once __DIR__ . '/../includes/data.php';
+require_once __DIR__ . '/../../includes/core/bootstrap.php';
 $pageTitle = 'Checkout Hotel';
 $layout    = 'checkout';
-require __DIR__ . '/../includes/header.php';
+require PROJECT_ROOT . '/includes/layouts/site/header.php';
 
-// Tanggal dari form di halaman Paw Hotel (?in, ?out); jika kosong pakai nilai desain.
-$checkIn  = fmt_date($_GET['in'] ?? null, '10/20/2026');
-$checkOut = fmt_date($_GET['out'] ?? null, '10/24/2026');
+// Dates from the form on the Paw Hotel page (?check_in, ?check_out); falls back to the design values when empty.
+$checkIn  = format_date($_GET['check_in'] ?? null, '10/20/2026');
+$checkOut = format_date($_GET['check_out'] ?? null, '10/24/2026');
 
 $lines = [
     'Accommodation Fee:' => 200000,
@@ -23,8 +22,8 @@ $total = array_sum($lines);
   <div class="checkout-layout">
     <form>
       <div class="field-row">
-        <div><label>Check in date</label><input type="text" value="<?= e($checkIn) ?>" readonly></div>
-        <div><label>Check out date</label><input type="text" value="<?= e($checkOut) ?>" readonly></div>
+        <div><label>Check in date</label><input type="text" value="<?= escape_html($checkIn) ?>" readonly></div>
+        <div><label>Check out date</label><input type="text" value="<?= escape_html($checkOut) ?>" readonly></div>
       </div>
       <div class="field-row">
         <div><label>Pet Type</label><select><option>Dog</option><option>Cat</option></select></div>
@@ -35,8 +34,8 @@ $total = array_sum($lines);
       <br>
       <?php foreach ($hotelAddons as $addon): ?>
       <div class="addon">
-        <label><input type="checkbox"> <?= e($addon['name']) ?></label>
-        <span><?= rupiah($addon['price']) ?></span>
+        <label><input type="checkbox"> <?= escape_html($addon['name']) ?></label>
+        <span><?= format_rupiah($addon['price']) ?></span>
       </div>
       <?php endforeach; ?>
     </form>
@@ -45,9 +44,9 @@ $total = array_sum($lines);
       <aside class="summary">
         <h2>Payment</h2>
         <?php foreach ($lines as $label => $amount): ?>
-        <div class="line"><span><?= e($label) ?></span><span><?= rupiah($amount) ?></span></div>
+        <div class="line"><span><?= escape_html($label) ?></span><span><?= format_rupiah($amount) ?></span></div>
         <?php endforeach; ?>
-        <div class="total"><span>Total:</span><strong><?= rupiah($total) ?></strong></div>
+        <div class="total"><span>Total:</span><strong><?= format_rupiah($total) ?></strong></div>
         <h3 style="margin-top:1.5rem">Payment Method:</h3>
         <select><option>Qris</option></select>
       </aside>
@@ -58,5 +57,4 @@ $total = array_sum($lines);
     </div>
   </div>
 </main>
-</body>
-</html>
+<?php require PROJECT_ROOT . '/includes/layouts/site/footer.php'; ?>

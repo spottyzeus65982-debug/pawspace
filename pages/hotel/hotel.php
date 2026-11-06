@@ -1,6 +1,5 @@
 <?php
-require_once __DIR__ . '/../includes/functions.php';
-require_once __DIR__ . '/../includes/data.php';
+require_once __DIR__ . '/../../includes/core/bootstrap.php';
 $pageTitle = 'Paw Hotel';
 $navLinks  = [
     ['Home',         url('index.php')],
@@ -8,9 +7,9 @@ $navLinks  = [
     ['Reservations', '#reserve'],
     ['Live Webcam',  '#webcam'],
 ];
-require __DIR__ . '/../includes/header.php';
+require PROJECT_ROOT . '/includes/layouts/site/header.php';
 
-hero(
+render_hero(
     'hotel',
     'Paw Hotel',
     "More than just a stay—we provide a climate-controlled, cozy sanctuary where your cats and dogs enjoy private suites, daily playtime, and round-the-clock affection so they feel completely at home while you're away."
@@ -29,17 +28,17 @@ hero(
       </div>
     </div>
 
-    <form class="card res-form" action="<?= url('pages/checkout-hotel.php') ?>" method="get">
+    <form class="card res-form" action="<?= url('pages/hotel/checkout-hotel.php') ?>" method="get">
       <p><strong>Quick Reservation Search</strong></p>
       <div class="toggle" style="margin-top:12px"><span class="on">Dog Guest</span><span>Cat Guest</span></div>
       <label for="service">Select Required Service</label>
       <select id="service" name="service" style="margin-bottom:16px"><option>Hotel Boarding Suite</option></select>
       <div class="field-row">
-        <div><label for="in">Check-in Date</label><input id="in" type="date" name="in"></div>
-        <div><label for="out">Check-out Date</label><input id="out" type="date" name="out"></div>
+        <div><label for="check-in">Check-in Date</label><input id="check-in" type="date" name="check_in"></div>
+        <div><label for="check-out">Check-out Date</label><input id="check-out" type="date" name="check_out"></div>
       </div>
       <div class="field-row">
-        <div><label for="pets">Number of Pet</label><input id="pets" type="number" min="1" value="1" name="pets"></div>
+        <div><label for="pets">Number of Pets</label><input id="pets" type="number" min="1" value="1" name="pets"></div>
         <div><label for="size">Pet Size Tier</label><select id="size" name="size"><option>Small (under 5kg)</option></select></div>
       </div>
       <button class="btn btn-green" type="submit">Check Available Suites &amp; Slots</button>
@@ -54,11 +53,11 @@ hero(
   <div class="grid cols-3">
     <?php foreach ($rooms as $room): ?>
     <article class="card room">
-      <?= photo($room['photo'], $room['name']) ?>
+      <?= render_photo($room['photo'], $room['name']) ?>
       <div>
-        <h3><?= e($room['name']) ?></h3>
-        <p><?= e($roomDescription) ?></p>
-        <strong><?= rupiah($room['price']) ?>/night</strong>
+        <h3><?= escape_html($room['name']) ?></h3>
+        <p><?= escape_html($roomDescription) ?></p>
+        <strong><?= format_rupiah($room['price']) ?>/night</strong>
       </div>
     </article>
     <?php endforeach; ?>
@@ -75,7 +74,7 @@ hero(
       </div>
     </div>
     <?= render_calendar() ?>
-    <p style="text-align:right"><a class="btn btn-green" href="<?= url('pages/checkout-hotel.php') ?>">Book Now</a></p>
+    <p style="text-align:right"><a class="btn btn-green" href="<?= url('pages/hotel/checkout-hotel.php') ?>">Book Now</a></p>
   </div>
 </section>
 
@@ -83,8 +82,8 @@ hero(
   <div class="container">
     <span class="live-badge">Live Webcam Review</span>
     <h2>Watch Our Guests<br>Play in Real-Time</h2>
-    <?= photo('webcam', 'Live webcam view of a kitten playing on a cat tree') ?>
+    <?= render_photo('webcam', 'Live webcam view of a kitten playing on a cat tree') ?>
   </div>
 </section>
 
-<?php require __DIR__ . '/../includes/footer.php'; ?>
+<?php require PROJECT_ROOT . '/includes/layouts/site/footer.php'; ?>

@@ -1,6 +1,15 @@
 <?php
-/** Footer situs + popup keranjang (jika $showCart true). */
+/**
+ * Shared site footer. Closes what layouts/site/header.php opened
+ * (<main>, <body> and <html>) and prints the cart popup when $showCart is true.
+ */
+$layout   = $layout ?? 'site';
+$showCart = $showCart ?? false;
 ?>
+<?php if ($layout !== 'checkout'): ?>
+  </main>
+<?php endif; ?>
+
 <footer class="footer">
   <div class="inner">
     <div>
@@ -9,8 +18,8 @@
     </div>
     <div>
       <h4>Quick links</h4>
-      <a href="<?= url('pages/grooms.php') ?>">Paw Grooms</a>
-      <a href="<?= url('pages/hotel.php') ?>">Paw Hotel</a>
+      <a href="<?= url('pages/grooming/grooms.php') ?>">Paw Grooms</a>
+      <a href="<?= url('pages/hotel/hotel.php') ?>">Paw Hotel</a>
       <a href="<?= url('index.php#products') ?>">Products</a>
       <a href="<?= url('index.php#about') ?>">About us</a>
       <a href="<?= url('index.php#reviews') ?>">Reviews</a>
@@ -34,6 +43,7 @@
     </div>
   </div>
 </footer>
-<?php if (!empty($showCart)) { include __DIR__ . '/cart.php'; } ?>
+
+<?php if ($showCart) { require PROJECT_ROOT . '/includes/components/cart.php'; } ?>
 </body>
 </html>

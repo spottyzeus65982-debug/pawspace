@@ -1,13 +1,12 @@
 <?php
-require_once __DIR__ . '/../includes/functions.php';
-require_once __DIR__ . '/../includes/data.php';
+require_once __DIR__ . '/../../includes/core/bootstrap.php';
 $pageTitle = 'Checkout Grooming';
 $layout    = 'checkout';
-require __DIR__ . '/../includes/header.php';
+require PROJECT_ROOT . '/includes/layouts/site/header.php';
 
-// Data dari halaman Appointment (?package, ?date, ?time); jika kosong pakai nilai desain.
+// Data from the Appointment page (?package, ?date, ?time); falls back to the design values when empty.
 $package = $packages[(int) ($_GET['package'] ?? 0)] ?? $packages[0];
-$date    = fmt_date($_GET['date'] ?? null, '10/03/2026');
+$date    = format_date($_GET['date'] ?? null, '10/03/2026');
 $time    = $_GET['time'] ?? '01:00 PM';
 $petType = $package['type'] === 'cat' ? 'Cat' : 'Dog';
 
@@ -25,20 +24,20 @@ $total = array_sum($lines);
   <div class="checkout-layout">
     <form>
       <div class="field-row">
-        <div><label>Appointment Date</label><input type="text" value="<?= e($date) ?>" readonly></div>
-        <div><label>Appointment Time</label><input type="text" value="<?= e($time) ?>" readonly></div>
+        <div><label>Appointment Date</label><input type="text" value="<?= escape_html($date) ?>" readonly></div>
+        <div><label>Appointment Time</label><input type="text" value="<?= escape_html($time) ?>" readonly></div>
       </div>
       <div class="field-row">
-        <div><label>Pet Type</label><select><option><?= e($petType) ?></option></select></div>
-        <div><label>Grooming Package</label><select><option><?= e($package['name']) ?></option></select></div>
+        <div><label>Pet Type</label><select><option><?= escape_html($petType) ?></option></select></div>
+        <div><label>Grooming Package</label><select><option><?= escape_html($package['name']) ?></option></select></div>
       </div>
 
       <h3>Additional Pampering &amp; Spa Add Ons</h3>
       <br>
       <?php foreach ($groomingAddons as $addon): ?>
       <div class="addon">
-        <label><input type="checkbox"> <?= e($addon['name']) ?></label>
-        <span><?= rupiah($addon['price']) ?></span>
+        <label><input type="checkbox"> <?= escape_html($addon['name']) ?></label>
+        <span><?= format_rupiah($addon['price']) ?></span>
       </div>
       <?php endforeach; ?>
     </form>
@@ -47,9 +46,9 @@ $total = array_sum($lines);
       <aside class="summary">
         <h2>Payment</h2>
         <?php foreach ($lines as $label => $amount): ?>
-        <div class="line"><span><?= e($label) ?></span><span><?= rupiah($amount) ?></span></div>
+        <div class="line"><span><?= escape_html($label) ?></span><span><?= format_rupiah($amount) ?></span></div>
         <?php endforeach; ?>
-        <div class="total"><span>Total:</span><strong><?= rupiah($total) ?></strong></div>
+        <div class="total"><span>Total:</span><strong><?= format_rupiah($total) ?></strong></div>
         <h3 style="margin-top:1.5rem">Payment Method:</h3>
         <select><option>Qris</option></select>
       </aside>
@@ -60,5 +59,4 @@ $total = array_sum($lines);
     </div>
   </div>
 </main>
-</body>
-</html>
+<?php require PROJECT_ROOT . '/includes/layouts/site/footer.php'; ?>

@@ -47,7 +47,7 @@
   color: #fff;
   padding: 0 5% 64px;
 
-  /* Foto hero diatur di css/photos.css lewat --hero-img dan --hero-shade */
+  /* The hero photo is set in css/photos.css through --hero-img and --hero-shade */
   background-color: #4a3a2a;
   background-image:
     linear-gradient(rgba(0,0,0,var(--hero-shade,.5)),rgba(0,0,0,var(--hero-shade,.5))),

@@ -1,44 +1,44 @@
 <?php
 /**
- * Data contoh Paw Space. Nanti array ini bisa diganti hasil query database
- * tanpa mengubah tampilan di halaman.
+ * Paw Space sample data. These arrays can later be replaced with database
+ * query results without changing how the pages look.
  */
 
 $products = [
-    ['img' => 'product-1.jpg', 'name' => 'Lamb & Brown Rice Puppy Recipe', 'price' => 150000, 'rating' => 5],
-    ['img' => 'product-2.jpg', 'name' => 'Cat Pate Variety Pack',          'price' => 200000, 'rating' => 5],
-    ['img' => 'product-3.jpg', 'name' => 'Yo-Gut Bites with Oats',         'price' => 85000,  'rating' => 5],
-    ['img' => 'product-4.jpg', 'name' => 'Grain Free Salmon Cat Food',     'price' => 180000, 'rating' => 5],
+    ['image' => 'product-1.jpg', 'name' => 'Lamb & Brown Rice Puppy Recipe', 'price' => 150000, 'rating' => 5],
+    ['image' => 'product-2.jpg', 'name' => 'Cat Pate Variety Pack',          'price' => 200000, 'rating' => 5],
+    ['image' => 'product-3.jpg', 'name' => 'Yo-Gut Bites with Oats',         'price' => 85000,  'rating' => 5],
+    ['image' => 'product-4.jpg', 'name' => 'Grain Free Salmon Cat Food',     'price' => 180000, 'rating' => 5],
 ];
 
 $cartItems = [
-    ['img' => 'cart-1.jpg', 'category' => 'Dry dog food', 'name' => 'Lamb & Brown Rice Puppy Recipe',            'price' => 150000, 'qty' => 1],
-    ['img' => 'cart-2.jpg', 'category' => 'Wet cat food', 'name' => 'Chicken & Green Pea Pate',                  'price' => 92000,  'qty' => 1],
-    ['img' => 'cart-3.jpg', 'category' => 'Wet dog food', 'name' => 'Sweet Potato & Salmon Small Breed Cup Recipe', 'price' => 65000,  'qty' => 1],
-    ['img' => 'cart-4.jpg', 'category' => 'Dry dog food', 'name' => 'Beef & Brown Rice Recipe',                  'price' => 170000, 'qty' => 1],
+    ['image' => 'cart-1.jpg', 'category' => 'Dry dog food', 'name' => 'Lamb & Brown Rice Puppy Recipe',            'price' => 150000, 'quantity' => 1],
+    ['image' => 'cart-2.jpg', 'category' => 'Wet cat food', 'name' => 'Chicken & Green Pea Pate',                  'price' => 92000,  'quantity' => 1],
+    ['image' => 'cart-3.jpg', 'category' => 'Wet dog food', 'name' => 'Sweet Potato & Salmon Small Breed Cup Recipe', 'price' => 65000,  'quantity' => 1],
+    ['image' => 'cart-4.jpg', 'category' => 'Dry dog food', 'name' => 'Beef & Brown Rice Recipe',                  'price' => 170000, 'quantity' => 1],
 ];
 
 $stylists = [
-    ['photo' => 'stylist-1', 'name' => 'Ellie Rhodes',   'role' => 'Dog & Cat Specialist', 'rating' => '★ 4,9 (100+ Reviews)'],
-    ['photo' => 'stylist-2', 'name' => 'Cody Wilson',    'role' => 'Senior Bread Stylist', 'rating' => '★ 5 (207+ Reviews)'],
-    ['photo' => 'stylist-3', 'name' => 'Samantha Lynn',  'role' => 'De-shedding Expert',   'rating' => '★ 4,8'],
+    ['photo' => 'stylist-1', 'name' => 'Ellie Rhodes',   'role' => 'Dog & Cat Specialist', 'rating' => '★ 4.9 (100+ Reviews)'],
+    ['photo' => 'stylist-2', 'name' => 'Cody Wilson',    'role' => 'Senior Breed Stylist', 'rating' => '★ 5 (207+ Reviews)'],
+    ['photo' => 'stylist-3', 'name' => 'Samantha Lynn',  'role' => 'De-shedding Expert',   'rating' => '★ 4.8'],
 ];
 
 $packages = [
     ['type' => 'dog', 'label' => 'Dog Grooming', 'minutes' => 60, 'name' => 'Essential Bath & Brush',
-     'desc' => 'Ideal for short coats needing deep coat cleansing, nail maintenance, and fresh scent.',
+     'description' => 'Ideal for short coats needing deep coat cleansing, nail maintenance, and fresh scent.',
      'items' => ['Organic hypoallergenic shampoo bath', 'Gentle blow-dry & thorough coat brushing', 'Nail clipping & ear canal cleaning', 'Signature blueberry scent spritz'],
      'price' => 55000],
     ['type' => 'dog', 'label' => 'Dog Grooming', 'minutes' => 90, 'name' => 'Full Style & Breed Trim',
-     'desc' => 'Ideal for medium to long coats requiring complete styling, precision haircut, and total coat makeover.',
+     'description' => 'Ideal for medium to long coats requiring complete styling, precision haircut, and total coat makeover.',
      'items' => ['Hydro-massage bath & deep conditioning', 'Gentle blow-dry & dematting / brush-out', 'Nail trimming & paw pad shaving', 'Full-body haircut or breed-standard trim'],
      'price' => 135000],
     ['type' => 'cat', 'label' => 'Cat Grooming', 'minutes' => 45, 'name' => 'Gentle Feline Bath & Brush',
-     'desc' => 'A stress-free, quiet bath ideal for short-haired cats needing coat refreshment and shed control.',
+     'description' => 'A stress-free, quiet bath ideal for short-haired cats needing coat refreshment and shed control.',
      'items' => ['Cat-safe hypoallergenic shampoo bath', 'Quiet blow-dry & soft coat brushing', 'Claw clipping & soft paw wipe', 'Gentle ear canal & eye cleaning'],
      'price' => 60000],
     ['type' => 'cat', 'label' => 'Cat Grooming', 'minutes' => 30, 'name' => 'Sanitary & Express Pamper',
-     'desc' => 'A quick, waterless, low-stress maintenance session tailored for sensitive or bath-averse felines.',
+     'description' => 'A quick, waterless, low-stress maintenance session tailored for sensitive or bath-averse felines.',
      'items' => ['No-rinse waterless foam cleansing bath', 'Sanitary area & paw pad hair trim', 'Gentle claw trimming', 'Soft coat comb-through & shed removal'],
      'price' => 45000],
 ];

@@ -1,13 +1,12 @@
 <?php
-require_once __DIR__ . '/../includes/functions.php';
-require_once __DIR__ . '/../includes/data.php';
+require_once __DIR__ . '/../../includes/core/bootstrap.php';
 $pageTitle = 'Checkout Products';
 $layout    = 'checkout';
-require __DIR__ . '/../includes/header.php';
+require PROJECT_ROOT . '/includes/layouts/site/header.php';
 
 $total = 0;
 foreach ($cartItems as $item) {
-    $total += $item['price'] * $item['qty'];
+    $total += $item['price'] * $item['quantity'];
 }
 ?>
 <main class="checkout">
@@ -25,14 +24,14 @@ foreach ($cartItems as $item) {
     <p>Paw Space Products</p>
     <?php foreach ($cartItems as $item): ?>
     <div class="order-item">
-      <img src="<?= url('images/' . $item['img']) ?>" alt="<?= e($item['name']) ?>">
+      <img src="<?= url('images/' . $item['image']) ?>" alt="<?= escape_html($item['name']) ?>">
       <div>
-        <span class="tag"><?= e($item['category']) ?></span>
-        <p><strong><?= e($item['name']) ?></strong></p>
+        <span class="tag"><?= escape_html($item['category']) ?></span>
+        <p><strong><?= escape_html($item['name']) ?></strong></p>
       </div>
       <div>
-        <strong><?= rupiah($item['price']) ?></strong>
-        <p><span class="qty">+ <?= (int) $item['qty'] ?> −</span> 🗑</p>
+        <strong><?= format_rupiah($item['price']) ?></strong>
+        <p><span class="qty">+ <?= (int) $item['quantity'] ?> −</span> 🗑</p>
       </div>
     </div>
     <?php endforeach; ?>
@@ -41,9 +40,9 @@ foreach ($cartItems as $item) {
   <section style="margin-top:2rem">
     <h2 style="text-align:left">Payment</h2>
     <?php foreach ($cartItems as $item): ?>
-    <div class="line"><span><?= e($item['name']) ?></span><span>x<?= (int) $item['qty'] ?> &nbsp; <?= rupiah($item['price'] * $item['qty']) ?></span></div>
+    <div class="line"><span><?= escape_html($item['name']) ?></span><span>x<?= (int) $item['quantity'] ?> &nbsp; <?= format_rupiah($item['price'] * $item['quantity']) ?></span></div>
     <?php endforeach; ?>
-    <div class="total"><span>Total:</span><strong><?= rupiah($total) ?></strong></div>
+    <div class="total"><span>Total:</span><strong><?= format_rupiah($total) ?></strong></div>
   </section>
 
   <section style="margin-top:2rem">
@@ -55,4 +54,4 @@ foreach ($cartItems as $item) {
     </div>
   </section>
 </main>
-<?php require __DIR__ . '/../includes/footer.php'; ?>
+<?php require PROJECT_ROOT . '/includes/layouts/site/footer.php'; ?>
